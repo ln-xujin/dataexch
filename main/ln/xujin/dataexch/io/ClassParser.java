@@ -30,6 +30,7 @@ public class ClassParser {
 		root.setName(clazz.getName());
 		root.setDesc(clazz.getSimpleName());
 		root.setType(clazz.getTypeName());
+		root.setXpath("/");
 		
 		doParse(clazz, root, 1);
 		
@@ -53,6 +54,11 @@ public class ClassParser {
 				child.setName(f.getName());
 				child.setDesc(f.getName());
 				child.setType(f.getGenericType().getTypeName());
+				if (node.getXpath().equals("/")) {
+					child.setXpath("/" + f.getName());
+				} else {
+					child.setXpath(node.getXpath() + "/" + f.getName());
+				}
 				child.setParent(node);
 				children.put(child.getName(), child);
 				
@@ -103,7 +109,7 @@ public class ClassParser {
 			buf.append("-");
 		}
 		
-		logger.info(buf + node.getName());
+		logger.info(buf + node.getXpath());
 		
 		if (node.getChildren() != null) {
 			Collection<DataNode> children = node.getChildren().values();

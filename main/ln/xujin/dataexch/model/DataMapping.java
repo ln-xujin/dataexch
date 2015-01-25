@@ -1,40 +1,30 @@
 package ln.xujin.dataexch.model;
 
-import java.util.Map;
-
 public class DataMapping {
 
-	private DataNode target;
+	private String targetXpath;
 	
-	private DataNode source;
+	private String sourceXpath;
 	
-	/**
-	 * xpath Map<to, from>
-	 */
-	private Map<String, String> path;
-
-	public DataNode getTarget() {
-		return target;
+	public DataMapping(String targetXpath, String sourceXpath) {
+		this.targetXpath = targetXpath;
+		this.sourceXpath = sourceXpath;
 	}
 
-	public void setTarget(DataNode target) {
-		this.target = target;
+	public String getTargetXpath() {
+		return targetXpath;
 	}
 
-	public DataNode getSource() {
-		return source;
+	public void setTargetXpath(String targetXpath) {
+		this.targetXpath = targetXpath;
 	}
 
-	public void setSource(DataNode source) {
-		this.source = source;
+	public String getSourceXpath() {
+		return sourceXpath;
 	}
 
-	public Map<String, String> getPath() {
-		return path;
+	public void setSourceXpath(String sourceXpath) {
+		this.sourceXpath = sourceXpath;
 	}
-
-	public void setPath(Map<String, String> path) {
-		this.path = path;
-	}
-
+	
 }

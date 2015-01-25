@@ -9,6 +9,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 @SuppressWarnings("serial")
 public class DataNode implements Serializable {
+	
+	private Long id;
 
 	private String name;
 	
@@ -16,10 +18,20 @@ public class DataNode implements Serializable {
 	
 	private String type;
 	
+	private String xpath;
+	
 	private DataNode parent;
 	
 	private Map<String, DataNode> children;
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -45,7 +57,15 @@ public class DataNode implements Serializable {
 	}
 
 	public boolean isLeaf() {
-		return children == null || children.size() == 0 ? false : true;
+		return children == null || children.size() == 0 ? true : false;
+	}
+	
+	public String getXpath() {
+		return xpath;
+	}
+
+	public void setXpath(String xpath) {
+		this.xpath = xpath;
 	}
 
 	public DataNode getParent() {
